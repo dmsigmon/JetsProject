@@ -1,41 +1,41 @@
 package com.skilldistillery.jet;
 
-public class PassengerJet extends Jet {
-	private int numOfPassengers;
-	
+public class CargoJet extends Jet implements CargoCarrier {
+	private int lbsOfCargo;
 
-	public PassengerJet() {
-		
-	}
-
-	public PassengerJet(String model, double speed, int range, long price, int numOfPassengers) {
+	public CargoJet(String model, double speed, int range, long price, int lbsOfCargo) {
 		super(model, speed, range, price);
-		this.numOfPassengers = numOfPassengers;
+		this.lbsOfCargo = lbsOfCargo;
 	}
-	
+
+	public int getLbsOfCargo() {
+		return lbsOfCargo;
+	}
+
+	public void setLbsOfCargo(int lbsOfCargo) {
+		this.lbsOfCargo = lbsOfCargo;
+	}
+
 	@Override
 	public void fly() {
 		String displayJet = toString();
 		System.out.println(displayJet);
-		System.out.println("I fly passengers all over the world");
-		System.out.println("This " + getModel() + " can fly for " + getRange() + " miles going " + getSpeed() + " mph!");
-		System.out.println("That is about " + (double)getRange()/getSpeed() + " hours!");
+		System.out
+				.println("This " + getModel() + " can fly for " + getRange() + " miles going " + getSpeed() + " mph!");
+		System.out.println("That is about " + (double) getRange() / getSpeed() + " hours!");
+		System.out.println("I fly slow but for long distances");
 	}
 
-	public int getNumOfPassengers() {
-		return numOfPassengers;
+	@Override
+	public void loadCargo() {
+		System.out.println(getModel() +  " is loading cargo");
 	}
-
-	public void setNumOfPassengers(int numOfPassengers) {
-		this.numOfPassengers = numOfPassengers;
-	}
-
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PassengerJet [numOfPassengers=");
-		builder.append(numOfPassengers);
+		builder.append("CargoPlane [lbsOfCargo=");
+		builder.append(lbsOfCargo);
 		builder.append(", getSpeedinMach()=");
 		builder.append(getSpeedinMach());
 		builder.append(", getModel()=");
@@ -54,7 +54,7 @@ public class PassengerJet extends Jet {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + numOfPassengers;
+		result = prime * result + lbsOfCargo;
 		return result;
 	}
 
@@ -66,13 +66,12 @@ public class PassengerJet extends Jet {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PassengerJet other = (PassengerJet) obj;
-		if (numOfPassengers != other.numOfPassengers)
+		CargoJet other = (CargoJet) obj;
+		if (lbsOfCargo != other.lbsOfCargo)
 			return false;
 		return true;
 	}
 	
 	
 	
-
 }

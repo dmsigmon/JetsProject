@@ -18,11 +18,11 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-	
 	}
 
 	public double getSpeedinMach() {
-		return speed *= .0013;
+		double mach = speed * .0013;
+		return mach;
 	}
 
 	public String getModel() {
@@ -94,5 +94,14 @@ public abstract class Jet {
 			return false;
 		return true;
 	}
+
+	public void loadCargo() {
+		
+	}
+
+	
+
+
+
 
 }
